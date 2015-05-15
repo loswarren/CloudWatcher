@@ -166,32 +166,20 @@ void postData()
   // Connection: close\n
   // \n
   client.print("GET /input/");
-  Serial.print("GET /input/");
   client.print(publicKey);
-  Serial.print(publicKey);
   client.print("?private_key=");
-  Serial.print("?private_key=");
   client.print(privateKey);
-  Serial.print(privateKey);
   for (int i=0; i<NUM_FIELDS; i++)
   {
     client.print("&");
-    Serial.print("&");
     client.print(fieldNames[i]);
-    Serial.print(fieldNames[i]);
     client.print("=");
-    Serial.print("=");
     client.print(fieldData[i]);
-    Serial.print(fieldData[i]);
   }
   client.println(" HTTP/1.1");
-  Serial.println(" HTTP/1.1");
   client.print("Host: ");
-  Serial.print("Host: ");
   client.println(server);
-  Serial.println(server);
   client.println("Connection: close");
-  Serial.println("Connection: close");
   client.println();
 
   while (client.connected())
@@ -202,7 +190,8 @@ void postData()
       Serial.print(c);
     }      
   }
-  Serial.println();
+  Serial.println(); 
+
 }
 
 void setupWiFi()
